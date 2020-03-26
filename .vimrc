@@ -7,8 +7,8 @@ colorscheme solarized
 " Visual guide at 72 characters
 set colorcolumn=72
 
-" Display line numbers
-set number
+" Display relative line numbers
+set number relativenumber
 
 " Turn on auto indentation
 filetype plugin indent on
@@ -34,6 +34,9 @@ set textwidth=72
 " Hide mode at bottom which Airline shows anyways
 set noshowmode
 
+" Remove delay when switching between modes
+set ttimeoutlen=50
+
 " Strip trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
@@ -42,12 +45,3 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
-
-" Syntastic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
