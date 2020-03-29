@@ -37,6 +37,9 @@ set noshowmode
 " Remove delay when switching between modes
 set ttimeoutlen=50
 
+" Allow switching buffers without saving
+set hidden
+
 " Strip trailing whitespace on save
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
